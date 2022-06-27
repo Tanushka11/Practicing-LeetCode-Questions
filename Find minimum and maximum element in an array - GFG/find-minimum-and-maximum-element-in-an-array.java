@@ -64,7 +64,7 @@ class Compute
         
         
         long min=a[0];
-        long max=0;
+        long max=a[0];
         
         
         for(int i=0;i<a.length;i++){
