@@ -30,9 +30,11 @@ class Reverse
     // str: input string
     public static String reverseWord(String str)
     {
-      if(str==null || str.length()<=1){
-        return str;
-    }
-    return reverseWord(str.substring(1)) + str.charAt(0);
+        // Reverse the string str
+        String ans=new String();
+        for(int j=str.length()-1;j>=0;j--){
+          ans+=str.charAt(j);
+        }
+        return ans;
     }
 }
