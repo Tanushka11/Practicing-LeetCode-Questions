@@ -1,12 +1,12 @@
 class Solution {
     public boolean kLengthApart(int[] nums, int k) {
       
-     
-        for(Integer previndex = null,i=0;i<nums.length;i++)
+     int previndex = -1;
+        for(int i=0;i<nums.length;i++)
         {
             if(nums[i] == 1)
             {
-                if(previndex != null && i-previndex <= k)
+                if(previndex != -1 && i-previndex <= k)
                 {
                     return false;
                 }
