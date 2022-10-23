@@ -3,7 +3,7 @@ class Solution {
         if(nums.length < 2){
             return nums;
         }
-        Arrays.sort(nums);
+        
         int i=0;
         int j= nums.length -1;
         while(i<j){
