@@ -12,11 +12,11 @@ class Solution {
         }
         Collections.sort(evenI);
          Collections.sort(oddI);
-        Collections.reverse(oddI);
+        
         
         
         int l = 0;
-        int  m = 0;
+        int  m = oddI.size() - 1;
         for(int k = 0; k<nums.length; k++){
             if(k%2 == 0){
                 nums[k] = evenI.get(l);
@@ -24,7 +24,9 @@ class Solution {
             }
             else{
                 nums[k] = oddI.get(m);
-               m++;
+               if(m>0){
+                   m--;
+               }
             }
         }
        
