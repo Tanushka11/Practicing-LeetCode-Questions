@@ -14,22 +14,22 @@ class Solution {
          Collections.sort(oddI);
         Collections.reverse(oddI);
         
-        int[] ans = new int[nums.length];
+        
         int l = 0;
         int  m = 0;
         for(int k = 0; k<nums.length; k++){
             if(k%2 == 0){
-                ans[k] = evenI.get(l);
+                nums[k] = evenI.get(l);
                 l++;
             }
             else{
-                ans[k] = oddI.get(m);
+                nums[k] = oddI.get(m);
                m++;
             }
         }
        
         
          
-        return ans;
+        return nums;
     }
 }
