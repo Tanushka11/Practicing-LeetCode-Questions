@@ -3,7 +3,7 @@ class Solution {
         int c = 0;
         int s=0;
         for(int i=0; i<nums.length; i++){
-            if(nums[i] % 2 == 0 && nums[i] % 3 == 0 ){
+            if(nums[i] % 6 == 0 ){
                 c++;
                 s += nums[i];
             }
