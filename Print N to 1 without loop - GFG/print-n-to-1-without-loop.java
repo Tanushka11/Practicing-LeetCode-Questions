@@ -23,10 +23,14 @@ class Solution {
 
     void printNos(int N) {
         // code here
-        if(N<1){
+        int i = 1;
+        func(i,N);
+    }
+    void func(int i, int n){
+        if(i>n){
             return;
         }
-        System.out.print(N + " ");
-        printNos(N-1);
+        func(i+1, n);
+        System.out.print(i + " ");
     }
 }
