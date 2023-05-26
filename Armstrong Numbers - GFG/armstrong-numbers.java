@@ -22,14 +22,10 @@ class GFG {
 class Solution {
     static String armstrongNumber(int n){
         // code here
-        int CubicS = 0;
-        int x  = n;
-        while(x > 0) {
-            int rem = x % 10;
-            CubicS += Math.pow(rem,3);
-            x  = x/10;
-        } 
-        if(CubicS == n){
+        int x = n%10;
+        int y= (n/10) % 10;
+        int z = n/100;
+        if(x*x*x + y*y*y + z*z*z == n){
             return "Yes";
         }
         return "No";
