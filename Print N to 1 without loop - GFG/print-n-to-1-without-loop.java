@@ -21,16 +21,12 @@ class Main {
 
 class Solution {
 
-    void printNos(int N) {
+    void printNos(int n) {
         // code here
-        int i = 1;
-        func(i,N);
-    }
-    void func(int i, int n){
-        if(i>n){
+        if(n==0){
             return;
         }
-        func(i+1, n);
-        System.out.print(i + " ");
+        System.out.print(n + " ");
+        printNos(n-1);
     }
 }
