@@ -25,10 +25,16 @@ class GFG {
 class Solution {
     long sumOfSeries(long N) {
         // code here
-        long sum = 0;
-        for(long i=1;i<=N ; i++){
-            sum += (long) Math.pow(i,3);
+        long ans = sum(N,0);
+        return ans;
+        
+        
+    }
+    static long sum(long n, long s){
+        
+        if(n<1){
+            return s;
         }
-        return sum;
+        return sum(n-1, s + (long)Math.pow(n,3));
     }
 }
