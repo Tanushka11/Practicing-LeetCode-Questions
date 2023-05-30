@@ -1,7 +1,6 @@
 # Palindrome String
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a string <strong>S</strong>, check if it is palindrome or not.</span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string <strong>S</strong>, check if it is palindrome or not.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
@@ -18,14 +17,12 @@
 <p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Your Task: </strong><br>
-You don't need to read input or print anything. Complete the function <strong>isPlaindrome()</strong>which accepts string S and returns an integervalue 1 or 0.</span></p>
-
-<p><br>
+You don't need to read input or print anything. Complete the function <strong>isPalindrome()</strong>which accepts string S and returns an integer value 1 or 0.</span><br>
+<br>
 <span style="font-size:18px"><strong>Expected Time Complexity: </strong>O(Length of S)<br>
 <strong>Expected Auxiliary Space: </strong>O(1)</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 &lt;= Length of S&lt;= 10<sup>5</sup></span></p>
- <p></p>
-            </div>
+</div>
