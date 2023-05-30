@@ -25,20 +25,22 @@ class GFG {
 class Solution {
     int isPalindrome(String S) {
         // code here
-        if(S.length() == 0  || S.length() == 1 ){
+        if(S.length() == 0 || S.length() == 1){
             return 1;
         }
-        int s = 0;
-        int e  = S.length() - 1;
-        while(s<e){
-            if(S.charAt(s) ==  S.charAt(e)){
-                s++;
-                e--;
-            }
-            else{
-                return 0;
-        }
+         if(pal(0,S.length()-1,S)){
+             return 1;
+         }
+         return 0;
     }
-    return 1;
+    static boolean pal(int i,int j,String s){
+        if(i>j){
+            return true;
+        }
+        if(s.charAt(i) != s.charAt(j)){
+            return false;
+        }
+        return pal(i+1,j-1,s);
+       
     }
 };
