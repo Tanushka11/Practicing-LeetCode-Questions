@@ -35,12 +35,24 @@ public class Main {
 class Solution {
     int print2largest(int arr[], int n) {
         // code here
-        Arrays.sort(arr);
-        for(int i = n-2; i>=0 ; i--){
-            if(arr[i] != arr[n-1]){
-                return arr[i];
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        for(int i=0; i<n; i++){
+            if(arr[i] > max ){
+                max = arr[i];
             }
+          
         }
-        return -1;
+         for(int i=0; i<n; i++){
+            if(arr[i] > secondMax && arr[i] != max ){
+                 secondMax = arr[i];
+            }
+          
+        }
+        if(secondMax == Integer.MIN_VALUE){
+            return -1;
+        }
+        return secondMax;
+        
     }
 }
