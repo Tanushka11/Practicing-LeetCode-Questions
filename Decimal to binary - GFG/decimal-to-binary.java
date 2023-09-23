@@ -30,7 +30,7 @@ class Solution{
 		    ans += r;
 		    N /= 2;
 		}
-		StringBuffer s = new StringBuffer(ans);
+		StringBuilder s = new StringBuilder(ans);
 		System.out.print(s.reverse());
 		
 	}
