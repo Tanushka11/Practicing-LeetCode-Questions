@@ -27,12 +27,14 @@ class GFG {
 // } Driver Code Ends
 
 
+
+
 // User function Template for Java
 
 class Solve {
     int[] findTwoElement(int arr[], int n) {
         // code here
-        Arrays.sort(arr);
+        
         int[] ans = new int[2];
         int[] count = new int[n];
         for(int i=0; i<n; i++){
