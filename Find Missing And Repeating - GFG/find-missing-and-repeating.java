@@ -30,33 +30,30 @@ class GFG {
 // User function Template for Java
 
 class Solve {
-    int[] findTwoElement(int nums[], int n) {
-       int[] ans=new int[2];
-     CyclicSort(nums);
-     for(int i=0;i<nums.length;i++){
-         if(nums[i] != i+1 ){
-             ans[0]=nums[i];
-             ans[1]=i+1;
-         }
-     }
-     return ans;
-     
+    int[] findTwoElement(int arr[], int n) {
+        // code here
+        int[] ans = new int[2];
+        cyclicSort(arr);
+        for(int i=0; i<n; i++){
+            if(arr[i] != i+1){
+                ans[0] = arr[i];
+                ans[1] = i+1;
+            }
+        }
+        return ans;
     }
-    static void CyclicSort(int[] nums){
+    static void cyclicSort(int arr[]){
         int i=0;
-        while(i<nums.length){
-            int ci = nums[i] - 1;
-            if(nums[i] != nums[ci]){
-                swap(nums,i,ci);
+        while(i<arr.length){
+            int correctIndex = arr[i] - 1;
+            if(arr[i] != arr[correctIndex]){
+                int temp = arr[i];
+                arr[i] = arr[correctIndex];
+                arr[correctIndex] = temp;
             }
             else{
                 i++;
             }
         }
-    }
-    static void swap(int [] nums, int i, int j){
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
     }
 }
