@@ -27,30 +27,36 @@ class GFG {
 // } Driver Code Ends
 
 
-
-
 // User function Template for Java
 
 class Solve {
-    int[] findTwoElement(int arr[], int n) {
-        // code here
-        
-        int[] ans = new int[2];
-        int[] count = new int[n];
-        for(int i=0; i<n; i++){
-            int x = arr[i];
-            if(x <= n){
-                count[x-1] += 1;
+    int[] findTwoElement(int nums[], int n) {
+       int[] ans=new int[2];
+     CyclicSort(nums);
+     for(int i=0;i<nums.length;i++){
+         if(nums[i] != i+1 ){
+             ans[0]=nums[i];
+             ans[1]=i+1;
+         }
+     }
+     return ans;
+     
+    }
+    static void CyclicSort(int[] nums){
+        int i=0;
+        while(i<nums.length){
+            int ci = nums[i] - 1;
+            if(nums[i] != nums[ci]){
+                swap(nums,i,ci);
+            }
+            else{
+                i++;
             }
         }
-        for(int i =0; i<n; i++){
-            if(count[i] > 1){
-                ans[0] = i+1;
-            }else if(count[i] == 0){
-                ans[1] = i+1;
-            } 
-        }
-        
-        return ans;
+    }
+    static void swap(int [] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
