@@ -38,12 +38,37 @@ public class Main {
 class Solution {
     int count(int[] arr, int n, int x) {
         // code here
-        int count =0;
-        for(int i=0; i<n; i++){
-            if(arr[i] == x){
-                count++;
+        int[] fl = {-1,-1};
+        fl[0] = search(arr,x,true);
+        if(fl[0] == -1){
+            return 0;
+        }
+       else{
+            fl[1] = search(arr,x,false);
+        }
+        int ans = (fl[1] - fl[0]) + 1;
+        return ans;
+    }
+    static int search(int[] arr, int x, boolean direction){
+        int index = -1;
+    int s = 0;
+    int e = arr.length-1;
+        while(s<=e){
+            int m =  s + (e-s)/2;
+            if(arr[m] < x){
+                s = m+1;
+            }else if(arr[m] > x){
+                e = m-1;
+            }else{
+                index = m;
+                if(direction){
+                    e = m-1;
+                }else{
+                    s = m+1;
+                }
             }
         }
-        return count;
+        return index;
     }
+    
 }
