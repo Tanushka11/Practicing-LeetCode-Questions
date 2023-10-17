@@ -30,14 +30,23 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    int findKRotation(int nums[], int n) {
+    int findKRotation(int arr[], int n) {
         // code here
-        for(int i=0;i<n-1; i++){
-            if(nums[i] > nums[i+1]){
-                return i+1;
+        
+        int s = 0;
+        int e = n-1;
+        while(s<=e){
+            int m = s +(e-s)/2;
+            if(m > s && arr[m-1] > arr[m]){
+                return m;
+            }else if(m<e && arr[m] > arr[m+1]){
+                return m + 1;
+            }else if(arr[0] < arr[m]){
+                s = m+1;
+            }else{
+                e = m-1;
             }
         }
         return 0;
-        
     }
 }
