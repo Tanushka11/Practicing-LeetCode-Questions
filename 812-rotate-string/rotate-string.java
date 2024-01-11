@@ -9,7 +9,7 @@ class Solution {
         for(int i = 1; i<s.length(); i++){
             
             String d = "";
-            d += s.substring(i,s.length());
+            d += s.substring(i);
             d += s.substring(0,i);
             if(d.equals(goal)){
                 return true;
