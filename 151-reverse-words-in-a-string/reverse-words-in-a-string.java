@@ -1,14 +1,16 @@
 class Solution {
     public String reverseWords(String s) {
         String[] words = s.trim().split(" ");
-        String ans = "";
+        // String ans = "";
+        // string is giving O(n) tc thus use string builder
+        StringBuilder sb = new StringBuilder();
         for(int i = words.length-1; i>0; i--){
             if(!words[i].isEmpty()){
-                ans += words[i];
-                 ans += " ";
+               sb.append(words[i]);
+               sb.append(" ");
             }
         }
-        ans += words[0];
-        return ans;
+         sb.append(words[0]);
+        return sb.toString();
     }
 }
