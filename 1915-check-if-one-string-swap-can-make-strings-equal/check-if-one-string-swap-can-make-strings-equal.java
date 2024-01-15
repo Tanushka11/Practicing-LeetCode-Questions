@@ -1,25 +1,20 @@
 class Solution {
     public boolean areAlmostEqual(String s1, String s2) {
-        if(s1.length() != s2.length()){
-            return false;
-        }
-        if(s1.equals(s2)){
-            return true;
-        }
-        ArrayList<Integer> l = new ArrayList<>();
+        int[] arr1 = new int[26];
+        int[] arr2 = new int[26];
+        int c = 0;
         for(int i = 0; i<s1.length(); i++){
-            if(s1.charAt(i) != s2.charAt(i)){
-                l.add(i);
+            char ch1 = s1.charAt(i);
+            char ch2 = s2.charAt(i);
+            if(ch1 != ch2){
+                c++;
+                if(c > 2){
+                    return false;
+                }
             }
-            if(l.size() > 2){
-                return false;
-            }
+            arr1[ch1 - 'a']++;
+            arr2[ch2 - 'a']++;
         }
-
-        if(l.size() == 2 && s1.charAt(l.get(0)) == s2.charAt(l.get(1)) && s1.charAt(l.get(1)) == s2.charAt(l.get(0)) ){
-            return true;
-        }
-        return false;
-        
+        return Arrays.equals(arr1,arr2);
     }
 }
