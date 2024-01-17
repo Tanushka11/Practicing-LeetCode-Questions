@@ -1,32 +1,21 @@
 class Solution {
     public String sortVowels(String s) {
+        ArrayList<Integer> indexOfVowels = new ArrayList<>(); 
+        ArrayList<Character> vowels = new ArrayList<>(); 
         String v = "AEIOUaeiou";
-        String str = "";
-        String sorted = "";
+
         for(int i = 0; i<s.length(); i++){
-            char ch  = s.charAt(i);
+            char ch = s.charAt(i);
             if(v.contains(String.valueOf(ch))){
-                str += ch;
+                vowels.add(ch);
+               indexOfVowels.add(i);
             }
         }
-        char[] arr = str.toCharArray();
-        Arrays.sort(arr);
-        String ans  = new String(arr);
-        int k = 0;
-        int l = 0;
-        while(l < s.length()){
-            char ch1 = s.charAt(l);
-            if(!v.contains(String.valueOf(ch1))){
-                sorted += ch1;
-            }else{
-                if(k < ans.length()){
-                char ch2 = ans.charAt(k);
-                sorted += ch2;
-                k++;
-                }
-            }
-            l++;
+        Collections.sort(vowels);
+        char[] ans = s.toCharArray();
+        for(int i = 0; i < indexOfVowels.size() ; i++){
+            ans[indexOfVowels.get(i)] = vowels.get(i);
         }
-        return sorted;
+        return new String(ans);
     }
 }
