@@ -12,12 +12,12 @@ class Solution {
                 ans = Integer.toString(leftLimit + q - 1);
                 String reverse = rev(ans, intLength - ans.length());
                 ans = ans + reverse;
-                kthPalindromes[k] = Long.parseLong(ans);
+                kthPalindromes[k++] = Long.parseLong(ans);
                 
             }else{
-                kthPalindromes[k] = -1;
+                kthPalindromes[k++] = -1;
             }
-            k++;
+            
         }
         return kthPalindromes;
     }
