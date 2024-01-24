@@ -1,8 +1,8 @@
 class Solution {
     public long[] kthPalindrome(int[] queries, int intLength) {
-        int p = intLength % 2 == 0 ? (intLength / 2 ) - 1 : intLength / 2;
-        int leftLimit = (int) Math.pow(10, p);
-        int rightLimit = (int) Math.pow(10, p + 1) - 1;
+        int p = (intLength+1)/2;
+        int leftLimit = (int) Math.pow(10, p-1);
+        int rightLimit = (int) Math.pow(10, p) - 1;
 
         long[] kthPalindromes = new long[queries.length];
         String ans = "";
