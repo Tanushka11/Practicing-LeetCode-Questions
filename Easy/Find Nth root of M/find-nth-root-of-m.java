@@ -33,16 +33,37 @@ class Solution
     public int NthRoot(int n, int m)
     {
         // code here
-        
-        for(int i = 1; i <= m; i++){
-            double ans = Math.pow(i,n);
-            if(ans == m){
-                return i;
+        int start = 1;
+        int end = m;
+        while(start <= end){
+            int mid = start + (end - start)/2;
+            long res = function(mid,m,n);
+            if(res == 0){
+                return mid;
             }
-            else if(ans > m){
-                break;
+            else if(res == 1){
+                start = mid + 1;
+            }else{
+                end = mid -1;
             }
         }
         return -1;
+        
+    }
+    static long function(int mid , int m, int n){
+        long prod =1;
+        for(int i = 1; i<=n ; i++){
+            prod = prod * mid;
+            if(prod > m)
+            return 2;
+        }
+        if(prod == m){
+            return 0;
+        }
+       
+            return 1;
+        
+        
+        
     }
 }
