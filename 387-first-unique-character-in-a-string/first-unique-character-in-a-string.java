@@ -1,15 +1,14 @@
 class Solution {
     public int firstUniqChar(String s) {
-        HashMap<Character, Integer> map = new HashMap<>();
+        int[] freq = new int[26];
         for(int i = 0; i<s.length(); i++){
-            int v = map.getOrDefault(s.charAt(i) , 0);
-            map.put(s.charAt(i) , v + 1);
+            freq[s.charAt(i) - 'a']++;
         }
         for(int i = 0; i<s.length(); i++){
-            if(map.get(s.charAt(i)) == 1){
+            if(freq[s.charAt(i) - 'a'] == 1){
                 return i;
             }
         }
-            return -1;
+        return -1;
     }
 }
