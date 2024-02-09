@@ -86,18 +86,18 @@ class Solution
             slow = slow.next;
             
             if(fast == slow){
-                break;
-            }
-        }
-        if(fast != slow || fast == null || fast.next == null){
-                return 0;
-            }
-        int count = 1;
+               int count = 1;
         slow = slow.next;
         while(slow != fast){
             count ++;
             slow = slow.next;
         }
         return count;
+            }
+        }
+        // if(fast != slow || fast == null || fast.next == null){
+        //         return 0;
+        //     }
+        return 0;
     }
 }
