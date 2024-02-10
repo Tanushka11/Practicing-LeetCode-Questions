@@ -22,7 +22,7 @@ class Solution {
         ListNode reverseHead = secondHead;
         while(head != null && secondHead != null){
             if(head.val != secondHead.val){
-                break;
+                return false;
             }
                 head = head.next;
                 secondHead = secondHead.next;
