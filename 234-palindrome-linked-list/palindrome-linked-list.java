@@ -10,23 +10,49 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        List<Integer> list = new ArrayList<>();
-        ListNode node = head;
-        while(node != null){
-            list.add(node.val);
-            node = node.next;
+        // find middile
+        // reverse the second half of the ll
+        // traverse and check if head == mid if true then move ahead till mid reaches null if the condition is break in middile then just return false;
+        if(head == null || head.next == null){
+            return true;
         }
-        int i = 0; 
-        int j = list.size() - 1;
-        while(i < j){
-            if(list.get(i) != list.get(j)){
-                return false;
+        
+        ListNode mid = findMiddile(head);
+        ListNode secondHead = reverseLL(mid);
+        ListNode reverseHead = secondHead;
+        while(head != null && secondHead != null){
+            if(head.val != secondHead.val){
+                break;
             }
-            else{
-                i++;
-                j--;
-            }
+                head = head.next;
+                secondHead = secondHead.next;
         }
-        return true;
+        reverseLL(secondHead);
+        return head == null || secondHead == null;
+       
+    }
+    ListNode reverseLL(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+         ListNode prev = null;
+        ListNode pres = head;
+        ListNode next = pres.next;
+        while(pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = next;
+            if(next != null) next = next.next;
+        }
+        return prev;
+    }
+    ListNode findMiddile(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
