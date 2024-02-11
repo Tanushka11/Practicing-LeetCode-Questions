@@ -10,28 +10,44 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-        ArrayList<Integer> l = new ArrayList<>();
-        ListNode n = head;
-        while(n != null){
-            l.add(n.val);
-            n = n.next;
+        if(head == null || head.next == null) return;
+        ListNode middile = findMiddile(head);
+        ListNode newHead = reverseLL(middile.next);
+        ListNode headF= head;
+        while(headF != null && newHead != null){
+           ListNode temp = headF.next;
+           headF.next = newHead;
+           headF = temp;
+           temp = newHead.next;
+           newHead.next = headF;
+           newHead = temp;
         }
-        ArrayList<Integer> l2 = new ArrayList<>();
-        int i = 0; 
-        int j = l.size() -1;
-        while(i <= j){
-            l2.add(l.get(i));
-            l2.add(l.get(j));
-            i++;
-            j--;
+        if(headF != null){
+            headF.next = null;
         }
-     ListNode node = head;
-     
-     for(int k = 0; k<l2.size(); k++){
-         if(node != null){
-             node.val = l2.get(k);
-             node = node.next;
-         }
-     }
+    }
+    ListNode reverseLL(ListNode head){
+        if(head == null || head.next == null) return head;
+        ListNode prev = null;
+        ListNode pres = head;
+        ListNode next = head.next;
+        while(pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = next;
+            if(next != null) next = next.next;
+        }
+        return prev;
+    }
+    ListNode findMiddile(ListNode head){
+        if(head == null || head.next == null) return head;
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
