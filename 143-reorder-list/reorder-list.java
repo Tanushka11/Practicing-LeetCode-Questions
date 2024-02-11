@@ -12,7 +12,7 @@ class Solution {
     public void reorderList(ListNode head) {
         if(head == null || head.next == null) return;
         ListNode middile = findMiddile(head);
-        ListNode newHead = reverseLL(middile.next);
+        ListNode newHead = reverseLL(middile);
         ListNode headF= head;
         while(headF != null && newHead != null){
            ListNode temp = headF.next;
@@ -42,7 +42,7 @@ class Solution {
     ListNode findMiddile(ListNode head){
         if(head == null || head.next == null) return head;
         ListNode slow = head;
-        ListNode fast = head.next;
+        ListNode fast = head;
 
         while(fast != null && fast.next != null){
             slow = slow.next;
