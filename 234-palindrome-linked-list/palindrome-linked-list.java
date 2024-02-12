@@ -27,9 +27,9 @@ class Solution {
                 head = head.next;
                 secondHead = secondHead.next;
         }
-        // reverseLL(secondHead);
-        // return head == null || secondHead == null;
-        return true;
+        reverseLL(reverseHead);
+        return head == null || secondHead == null;
+       
        
     }
     ListNode reverseLL(ListNode head){
