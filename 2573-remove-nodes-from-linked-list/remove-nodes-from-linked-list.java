@@ -27,8 +27,7 @@ class Solution {
                 newHead = newHead.next;
             }
         }
-        ListNode node = reverse(head);
-        return node;
+       return reverse(head);
     }
     ListNode reverse(ListNode head){
         ListNode prev = null;
