@@ -14,18 +14,20 @@ public class Solution {
         if(headA == null || headB == null){
             return null;
         }
-        ListNode node = headB;
-        while(headA != null){
-            while(node != null){
-                if(node == headA){
-                    return node;
-                }else{
-                    node = node.next;
-                }
+        ListNode a = headA;
+        ListNode b = headB;
+        while(a != b){
+            if(a == null){
+                a = headB;
+            }else{
+                a = a.next;
             }
-            headA= headA.next;
-            node = headB;
+            if(b == null){
+                b = headA;
+            }else{
+                b = b.next;
+            }
         }
-        return null;
+        return a;
     }
 }
