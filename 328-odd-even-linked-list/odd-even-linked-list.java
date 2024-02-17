@@ -18,7 +18,7 @@ class Solution {
             slow.next = fast.next;
             fast.next = null;
             if(slow.next != null) slow = slow.next;
-            if(fast != null && slow != null) fast.next = slow.next;
+            if(fast != null) fast.next = slow.next;
             if(fast != null) fast = fast.next;
         }
         slow.next = p;
