@@ -12,23 +12,41 @@ class Node {
     }
 }
 */
+/*
+1. insert the copy node
+2. conect the random pointer
+3. connect next pointer
+*/
 
 class Solution {
     public Node copyRandomList(Node head) {
         Node temp = head;
-        HashMap<Node, Node> map = new HashMap<>();
+        // step 1  insert the copy node
         while(temp != null){
-            Node newNode = new Node(temp.val);
-            map.put(temp, newNode);
-            temp = temp.next;
+            Node node = new Node(temp.val);
+            Node forward = temp.next;
+            temp.next = node;
+            node.next = forward;
+            temp = forward;
         }
+        // step 2  conect the random pointer
         temp = head;
         while(temp != null){
-          Node copyNode = map.get(temp);
-            copyNode.next = map.get(temp.next);
-            copyNode.random = map.get(temp.random);
-            temp = temp.next;
+            Node randomNode = temp.random;
+            if(randomNode != null) temp.next.random = randomNode.next;
+            else temp.next.random = null;
+            temp = temp.next.next;
         }
-        return map.get(head);
+        // step 3 connect next pointer
+        temp = head;
+        Node prehead = new Node(-1);
+        Node dummy = prehead;
+        while(temp != null){
+            dummy.next = temp.next;
+            temp.next = temp.next.next;
+            temp = temp.next;
+            dummy = dummy.next;
+        }
+        return prehead.next;
     }
 }
