@@ -1,10 +1,14 @@
 class Solution {
     public int[] runningSum(int[] nums) {
-        int sum = 0;
-        for(int i = 0; i<nums.length; i++){
-            sum += nums[i];
-            nums[i] = sum;
+        //with recursion
+        return recursiveFunc(nums,0,0);
+    }
+    int[] recursiveFunc(int[] nums, int i, int sum){
+        if(i == nums.length){
+            return nums;
         }
-        return nums;
+       sum += nums[i];
+       nums[i] = sum;
+       return recursiveFunc(nums,i+1,sum); 
     }
 }
