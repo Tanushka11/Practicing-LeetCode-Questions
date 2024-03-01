@@ -14,7 +14,7 @@ class Solution {
                 ans = ans * x;
             }
         }
-        if(nn < 0) return (double)1.0/(double) ans;
+        if(nn < 0) return 1.0/ ans;
         return ans;
     }
 }
