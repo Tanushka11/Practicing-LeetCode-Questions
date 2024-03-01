@@ -1,36 +1,36 @@
 class Solution {
     public boolean isPossibleToSplit(int[] nums) {
+        Arrays.sort(nums);
         HashMap<Integer,Integer> map = new HashMap<>();
         for(int i = 0; i<nums.length; i++){
             int v = map.getOrDefault(nums[i] , 0);
             map.put(nums[i] , v+1);
         }
-        HashSet<Integer> nums1 = new HashSet<>();
-        HashSet<Integer> nums2 = new HashSet<>();
-
+        int one = 0;
+        int two = 0;
+        int prev = 0;
         for(int i = 0; i<nums.length; i++){
-            if(map.get(nums[i]) >= 2){
-                nums1.add(nums[i]);
-                nums2.add(nums[i]);
+            if(nums[i] != prev && map.get(nums[i]) >= 2){
+                one +=1;
+                two +=1;
+                prev = nums[i];
             }
         }
         for(int i = 0; i<nums.length; i++){
-            if(nums[i] != 0 && map.get(nums[i]) == 1 && nums1.size() < nums.length/2){
-                nums1.add(nums[i]);
+            if(nums[i] != prev && map.get(nums[i]) == 1 && one<nums.length/2){
+                one += 1;
                 nums[i] = 0;
+                 prev = nums[i];
             }
         }
         for(int i = 0; i<nums.length; i++){
-            if(nums[i] != 0 && map.get(nums[i]) == 1){
-                nums2.add(nums[i]);
-                nums[i] = 0;
+            if(nums[i] != prev && nums[i] != 0 && map.get(nums[i]) == 1){
+                two += 1;
+                 prev = nums[i];
             }
         }
-        System.out.print(nums1);
-        System.out.print(nums2);
-        if(nums1.size() == nums.length/2 && nums2.size() == nums.length/2){
-            return true;
-        }
-        return false;
+        
+        return (one == nums.length/2 && two == nums.length/2);
+        
     }
 }
