@@ -1,14 +1,17 @@
 class Solution {
     public int addedInteger(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        
-        if(nums1[0] < nums2[0]){
-            return  nums2[0] - nums1[0];
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+        for(int i : nums1){
+            if(i < min1){
+                min1 = i;
+            }
         }
-        if(nums1[0] > nums2[0]){
-            return - (nums1[0] - nums2[0]);
+        for(int i : nums2){
+            if(i < min2){
+                min2 = i;
+            }
         }
-        return 0;
+        return min2 - min1;
     }
 }
