@@ -1,7 +1,9 @@
 class Solution {
     public List<List<Integer>> ans = new ArrayList<>();
     public void helper (int start, int target, int k , List<Integer> cf){
-        
+        if(target < 0 ){
+        return;
+        }
         if( target == 0 && cf.size() == k){
             ans.add(new ArrayList<>(cf));
             return;
