@@ -9,7 +9,7 @@ class Solution {
         int maxCol = col - 1;
         int count = 0;
 
-        while(minRow <= maxRow && minCol <= maxCol){
+        while(count < (row * col)){
             // top wall
             for(int i = minRow, j = minCol; j <= maxCol && count < (row * col); j++){
                 ans.add(matrix[i][j]);
