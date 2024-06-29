@@ -6,7 +6,7 @@ class Solution {
         int i = 0;
         int j = nums.length - 1;
         int k = 0;
-        while(k<averages.length && i<j){
+        while( i<j){
             double avrg = (double)(nums[i] + nums[j])/2;
             averages[k] = avrg;
             i++;
