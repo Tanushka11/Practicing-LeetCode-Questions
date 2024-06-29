@@ -1,50 +1,24 @@
 class Solution {
     public double minimumAverage(int[] nums) {
+        Double[] averages = new Double[nums.length/2];
+        Arrays.sort(nums);
+
+        int i = 0;
+        int j = nums.length - 1;
+        int k = 0;
+        while(k<averages.length && i<j){
+            double avrg = (double)(nums[i] + nums[j])/2;
+            averages[k] = avrg;
+            i++;
+            j--;
+            k++;
+        }
         double min = Integer.MAX_VALUE;
-
-        ArrayList<Double> averages = new ArrayList<>();
-        ArrayList<Integer> Nums = new ArrayList<>();
-
-        for(int i = 0; i<nums.length; i++){
-            Nums.add(nums[i]);
-        }
-        int times = nums.length/2;
-        for(int i = 0; i<times; i++){
-            int minElement = findSmallElement(Nums);
-            int maxElement = findMaxElement(Nums);
-            double avrg = (double)(minElement + maxElement)/2;
-            averages.add(avrg);
-        }
-        System.out.print(averages);
-        for(int i = 0; i<averages.size(); i++){
-            if(averages.get(i) < min){
-                min = averages.get(i) ;
+        for(int m = 0; m<averages.length; m++){
+            if(averages[m] < min){
+                min = averages[m] ;
             }
         }
         return min;
-    }
-    int findSmallElement(ArrayList<Integer> arr){
-        int min = Integer.MAX_VALUE;
-        int k = 0;
-        for(int i = 0; i<arr.size(); i++){
-            if(arr.get(i) < min){
-                min = arr.get(i);
-                k = i;
-            }
-        }
-        arr.remove(arr.get(k));
-        return min;
-    }
-    int findMaxElement(ArrayList<Integer> arr){
-        int max = Integer.MIN_VALUE;
-        int k = 0;
-        for(int i = 0; i<arr.size(); i++){
-            if(arr.get(i) > max){
-                max = arr.get(i);
-                k = i;
-            }
-        }
-        arr.remove(arr.get(k));
-        return max;
     }
 }
