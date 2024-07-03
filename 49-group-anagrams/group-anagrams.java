@@ -4,16 +4,18 @@ class Solution {
 
         for(String s : strs){
             int[] freq = new int[26];
-            for(int i = 0; i < freq.length; i++){
-                freq[i] = 1;
-            }
-            for(char ch : s.toCharArray()){
-                freq[ch-'a']++;
-            }
-            String freqPattern = "";
-            for(int charfreq : freq){
-                freqPattern += charfreq + "";
-            }
+            char[] charArray = s.toCharArray();
+             Arrays.sort(charArray);
+            // for(char ch : charArray){
+            //     freq[ch-'a']++;
+            // }
+            
+            // String freqPattern = "";
+            // for(int charfreq : freq){
+            //     freqPattern += charfreq + "";
+            // }
+
+            String freqPattern = String.valueOf(charArray);
             if(!map.containsKey(freqPattern)){
                 map.put(freqPattern, new ArrayList<>());
             }
