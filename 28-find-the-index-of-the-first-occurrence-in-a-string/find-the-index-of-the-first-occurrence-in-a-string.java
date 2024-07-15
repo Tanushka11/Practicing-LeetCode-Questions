@@ -6,8 +6,9 @@ class Solution {
             int j = i+1;
             while(j <= haystack.length() ){
             String s = haystack.substring(i,j);
-                j++;
+                
                 if(s.equals(needle)) return i;
+                j++;
             }
         }
         return -1;
