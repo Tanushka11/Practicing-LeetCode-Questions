@@ -1,17 +1,10 @@
 class Solution {
     public int duplicateNumbersXOR(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for(int i : nums){
-            int v = map.getOrDefault(i,0);
-            map.put(i,v+1);
-        }
+        int[] freq = new int[51];
         int ans = 0;
-        for(int i : map.keySet()){
-            int v  = map.get(i);
-            if(v == 2){
-                ans ^= i;
-            }
+        for(int i = 0; i<nums.length; i++){
+            freq[nums[i]]++;
+            if(freq[nums[i]] == 2) ans ^= nums[i];
         }
         return ans;
     }
