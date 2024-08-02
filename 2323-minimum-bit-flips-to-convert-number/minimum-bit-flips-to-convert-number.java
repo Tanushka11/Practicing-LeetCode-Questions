@@ -7,9 +7,6 @@ class Solution {
         for(int bp = 0; bp < total; bp++){
             if(!equal(bp , n , k)){
                 count++;
-                int mn = ~(1<<bp);
-                n = n & mn;
-                k = k & mn;
             }
         }
          return count;
