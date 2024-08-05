@@ -9,8 +9,7 @@ class Solution {
             }
             i++;
         }
-        for(int k = 0; k < nums.length; k++)
-        System.out.print(nums[k]);
+        
         return count;
     }
 }
