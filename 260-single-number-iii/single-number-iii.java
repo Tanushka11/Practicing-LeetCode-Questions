@@ -6,8 +6,7 @@ class Solution {
             xor ^= i;
         }
         // find the righmost set bit
-        int rightMostSetBit = xor & (-xor)
-        ;
+        int rightMostSetBit = xor & ~(xor-1);
 
         // we know the distict elements would have distinct set bits thus we
         // traverse through the array and put & operation with rightMostSetBit to each element to distinguish
