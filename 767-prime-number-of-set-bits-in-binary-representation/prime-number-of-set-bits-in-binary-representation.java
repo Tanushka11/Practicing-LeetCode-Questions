@@ -14,7 +14,7 @@ class Solution {
             if((n & mn) != 0) c++;
         }
         if(c == 1) return false;
-        for(int i = 2; i < c; i++){
+        for(int i = 2; i*i <= c; i++){
             if(c % i == 0) return false;
         }
         return true;
